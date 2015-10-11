@@ -2,18 +2,6 @@ var BigTextWizard = {
     LINE_HEIGHT_STYLE_ID: 'bigtext-wizard-lineheight-styleinjection',
     CUSTOM_STYLE_ID: 'bigtext-wizard-styleinjection',
     DEFAULT_TEXT: '',
-    loadedFonts: {},
-    fontUrls: {
-        'LeagueGothicRegular': 'css/league-gothic/stylesheet.css',
-        'Droid Sans': 'http://fonts.googleapis.com/css?family=Droid+Sans',
-        'Yanone Kaffeesatz': 'http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz',
-        'Molengo': 'http://fonts.googleapis.com/css?family=Molengo',
-        'Droid Sans Mono': 'http://fonts.googleapis.com/css?family=Droid+Sans+Mono',
-        'Arvo': 'http://fonts.googleapis.com/css?family=Arvo:regular,bold',
-        'Arimo': 'http://fonts.googleapis.com/css?family=Arimo',
-        'Puritan': 'http://fonts.googleapis.com/css?family=Puritan',
-        'IM Fell English': 'http://fonts.googleapis.com/css?family=IM+Fell+English'
-    },
     clear: function(ignoreFocus)
     {
         var cleared = $('<div/>').html(BigTextWizard.DEFAULT_TEXT);
@@ -21,22 +9,13 @@ var BigTextWizard = {
         BigTextWizard._init();
         cleared.trigger('focus');
     },
-    _init: function()
+    init: function()
     {
         var $bt = $('#bigtext');
         $bt.bigtext();
 
         BigTextWizard.initializeLineHeights();
         BigTextWizard.initEditable.call($bt.find('> div'));
-    },
-    init: function()
-    {
-        var fontFamily = "";
-        if(BigTextWizard.loadedFonts[fontFamily]) {
-            BigTextWizard._init();
-        } else {
-            BigTextWizard.loadFont(fontFamily, BigTextWizard._init);
-        }
     },
     initEditable: function()
     {
@@ -109,19 +88,6 @@ var BigTextWizard = {
     resetTransform: function()
     {
         $('#bigtext').css('-webkit-transform', '');
-    },
-    loadFont: function(fontFamily, callback)
-    {
-         WebFont.load({
-            custom: {
-                families: [fontFamily],
-                urls : [BigTextWizard.fontUrls[fontFamily]]
-            },
-            active: function() {
-                BigTextWizard.loadedFonts[fontFamily] = true;
-                callback();
-            }
-        });
     },
     setCustomStyle: function()
     {
