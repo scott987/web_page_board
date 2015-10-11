@@ -79,7 +79,7 @@
         for(var j=0, k=linesFontSizes.length; j<k; j++) {
           css.push('#' + id + ' .' + BigText.LINE_CLASS_PREFIX + j + ' {' +
             (minFontSizes[j] ? ' white-space: normal;' : '') +
-            (linesFontSizes[j] ? ' font-size: ' + linesFontSizes[j] + 'px;' : '') +
+            (linesFontSizes[j] ? ' font-size: ' + linesFontSizes[j] + 'px;' : 'font-size:80vh') +
             (lineWordSpacings[j] ? ' word-spacing: ' + lineWordSpacings[j] + 'px;' : '') +
             '}');
         }
