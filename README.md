@@ -6,6 +6,9 @@ A text board on web page
 2. go to address "ntnucic.github.io/web_page_board/"
 3. edit on the page
 
+#Browser
+sorry,IE....
+
 #Licence
 This board uses Zach Leatherman's BigText  
 https://github.com/zachleat/BigText  
