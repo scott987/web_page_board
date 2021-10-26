@@ -5,9 +5,25 @@
         <title>Web Page Board</title>
         <link type="text/css" href="flexbox.css" rel="stylesheet" />
         <link type="text/css" href="bigtextWizard.css" rel="stylesheet" />
+        <script>
+            function fs()
+            {
+                if(!window.fullScreen)
+                {
+                    document.documentElement.requestFullscreen();
+                    document.getElementById("fs").innerText="close FullScreen"
+                }
+                else
+                {
+                    document.exitFullscreen();
+                    document.getElementById("fs").innerText="FullScreen"
+                }
+            }
+        </script>
     </head>
     <body class="bigtextWizardWhite">
         <div id="centered" class="hbox">
+            <button id="fs" style="position:fixed;z-index:100;font-size:1.5em;" onclick="fs()">FullScreen</button>
             <div class="vbox center">
                 <div id="container">
                     <div id="bigtext" class="bigtext blurred" style="width:100vw;text-align:center"><div>EDIT ME</div></div>
