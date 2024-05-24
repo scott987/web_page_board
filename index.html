@@ -26,7 +26,7 @@
             <button id="fs" style="position:fixed;z-index:100;font-size:1.5em;" onclick="fs()">FullScreen</button>
             <div class="vbox center">
                 <div id="container">
-                    <div id="bigtext" class="bigtext blurred" style="width:100vw;text-align:center"><div>EDIT ME</div></div>
+                    <div id="bigtext" class="bigtext blurred" style="width:98vw;text-align:center;padding: 1vw;"><div>EDIT ME</div></div>
                 </div>
             </div>
         </div>
@@ -37,5 +37,23 @@
         <script src="js/jquery.ba-throttle-debounce.min.js"></script>
         <script src="js/bigtext.js"></script>
         <script src="bigtextWizard.js"></script>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            var bigtext = document.getElementById("bigtext");
+            if(urlParams.get("text")){
+                var bigtext = document.getElementById("bigtext");
+                bigtext.classList.remove("blurred");
+                bigtext.firstChild.innerText=urlParams.get("text");
+            }
+            if(urlParams.get("br")){
+                for(var i=0; i<parseInt(urlParams.get("br"));i++)
+                {
+                    var newline = document.createElement("div");
+                    newline.appendChild(document.createElement("br"));
+                    bigtext.firstChild.insertBefore(newline,bigtext.firstChild.firstChild);
+
+                }
+            }
+        </script>
     </body>
 </html>
